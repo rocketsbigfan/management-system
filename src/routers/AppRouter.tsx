@@ -5,6 +5,7 @@ import config from './config';
 import PageLoading from '@/components/PageLoading';
 
 debugger
+debugger
 
 const renderRoutes = (routes?: RoutesProps) => {
   if(!Array.isArray(routes)) {
