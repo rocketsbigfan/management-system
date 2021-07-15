@@ -1,9 +1,10 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import type { RoutesProps } from './config';
 import config from './config';
 import PageLoading from '@/components/PageLoading';
 
+debugger
 
 const renderRoutes = (routes?: RoutesProps) => {
   if(!Array.isArray(routes)) {
