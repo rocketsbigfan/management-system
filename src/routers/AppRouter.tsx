@@ -1,12 +1,12 @@
-import { Suspense } from 'react'
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import type { RoutesProps } from './config';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { RoutesProps } from './config';
 import config from './config';
 import PageLoading from '@/components/PageLoading';
 
 const renderRoutes = (routes?: RoutesProps) => {
-  if(!Array.isArray(routes)) {
-    return null
+  if (!Array.isArray(routes)) {
+    return null;
   }
   return (
     <Switch>
@@ -44,8 +44,8 @@ const renderRoutes = (routes?: RoutesProps) => {
         );
       })}
     </Switch>
-  )
-}
+  );
+};
 
 const AppRouter = () => <Router>{renderRoutes(config)}</Router>;
-export default AppRouter
+export default AppRouter;
