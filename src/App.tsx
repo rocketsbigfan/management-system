@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
-import { get } from '@/utils/request'
-import List from '@/pages/TodoLists'
-import logo from './logo.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { get } from '@/utils/request';
+import List from '@/pages/First/TodoLists';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count] = useState(0);
 
   const handleClick = () => {
     get('/test1/api1', {
       name: 1,
-      age: 23
+      age: 23,
     }).then(res => {
-      console.log(res)
-    })
-  }
+      console.log(res);
+    });
+  };
 
   return (
     <div className="App">
@@ -26,32 +26,11 @@ function App() {
             count is: {count}
           </button>
         </p>
-        <p>
-          测试测试
-        </p>
+        <p>测试测试</p>
         <List />
-       {/* <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>*/}
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
