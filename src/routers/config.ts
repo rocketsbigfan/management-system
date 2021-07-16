@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react';
+import { ComponentType } from 'react';
 import { lazy } from 'react';
 
 import UserLayout from '@/layout/UserLayout';
@@ -6,16 +6,16 @@ import SecurtiyLayout from '@/layout/SecurtiyLayout';
 import BasicLayout from '@/layout/BasicLayout';
 
 export type RouteProps = {
-  path: string,
-  component: ComponentType<any>,
-  routes?: RoutesProps
-  title?: string
-  redirect?: string
-  exact?: boolean
-  strict?: boolean
-}
+  path: string;
+  component: ComponentType<any>;
+  routes?: RoutesProps;
+  title?: string;
+  redirect?: string;
+  exact?: boolean;
+  strict?: boolean;
+};
 
-export type RoutesProps = RouteProps[]
+export type RoutesProps = RouteProps[];
 
 const config: RoutesProps = [
   {
@@ -24,10 +24,10 @@ const config: RoutesProps = [
     routes: [
       {
         path: '/user/login',
-        component: lazy(() => import('@/pages/Login'))
-      }
+        component: lazy(() => import('@/pages/Login')),
+      },
     ],
-    title: '登陆'
+    title: '登陆',
   },
   {
     path: '/',
@@ -40,39 +40,38 @@ const config: RoutesProps = [
           {
             path: '/first/welcome',
             title: '欢迎',
-            component: lazy(() => import('@/pages/Welcome'))
+            component: lazy(() => import('@/pages/Welcome')),
           },
           {
             path: '/first/table',
             title: '表格',
-            component: lazy(() => import('@/pages/First/Table'))
+            component: lazy(() => import('@/pages/First/Table')),
           },
           {
             path: '/first/todo',
             title: '表单',
-            component: lazy(() => import('@/pages/First/TodoLists'))
+            component: lazy(() => import('@/pages/First/TodoLists')),
           },
           {
             path: '/second/com1',
             title: '测试1',
-            component: lazy(() => import('@/pages/Second/Com1'))
+            component: lazy(() => import('@/pages/Second/Com1')),
           },
           {
             path: '/second/com2',
             title: '测试2',
-            component: lazy(() => import('@/pages/Second/Com1'))
+            component: lazy(() => import('@/pages/Second/Com2')),
           },
           {
             path: '*',
             title: '欢迎',
-            component: lazy(() => import('@/pages/Welcome'))
+            component: lazy(() => import('@/pages/Welcome')),
           },
-        ]
-      }
+        ],
+      },
     ],
-  }
+  },
   // 兜底
+];
 
-]
-
-export default config
+export default config;
