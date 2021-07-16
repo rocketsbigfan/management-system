@@ -6,8 +6,8 @@ import SecurtiyLayout from '@/layout/SecurtiyLayout';
 import BasicLayout from '@/layout/BasicLayout';
 
 export type RouteProps = {
-  path: string;
-  component: ComponentType<any>;
+  path?: string;
+  component?: ComponentType<any>;
   routes?: RoutesProps;
   title?: string;
   redirect?: string;
@@ -63,14 +63,15 @@ const config: RoutesProps = [
             component: lazy(() => import('@/pages/Second/Com2')),
           },
           {
-            path: '*',
-            title: '欢迎',
-            component: lazy(() => import('@/pages/Welcome')),
+            path: '/',
+            exact: true,
+            redirect: '/first/welcome',
           },
         ],
       },
     ],
   },
+
   // 兜底
 ];
 

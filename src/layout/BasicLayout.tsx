@@ -4,6 +4,7 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import styles from './BasicLayout.module.less';
 import GlobalHeader from '@/components/GlobalHeader/RightContent';
 import PageLoading from '@/components/PageLoading';
+import KeepingTabs from '@/components/GlobalHeader/Tabs';
 
 const BaseMenu = React.lazy(() => import('@/components/SideMenu'));
 
@@ -67,6 +68,7 @@ const BasicLayout = (props: any) => {
           })}
           <GlobalHeader />
         </Header>
+        <KeepingTabs />
         <Content
           className={styles['site-layout-background']}
           style={{
@@ -81,5 +83,4 @@ const BasicLayout = (props: any) => {
     </Layout>
   );
 };
-
 export default BasicLayout;

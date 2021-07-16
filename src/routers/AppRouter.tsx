@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { RoutesProps } from './config';
 import config from './config';
 import PageLoading from '@/components/PageLoading';
+import KeepAlive from 'react-activation';
 
 const renderRoutes = (routes?: RoutesProps) => {
   if (!Array.isArray(routes)) {
@@ -29,12 +30,20 @@ const renderRoutes = (routes?: RoutesProps) => {
             path={route.path}
             exact={route.exact}
             strict={route.strict}
-            render={() => {
+            render={props => {
               const renderChildRoutes = renderRoutes(route.routes);
               if (route.component) {
                 return (
                   <Suspense fallback={<PageLoading />}>
-                    <route.component route={route}>{renderChildRoutes}</route.component>
+                    {renderChildRoutes ? (
+                      <route.component route={route} {...props}>
+                        {renderChildRoutes}
+                      </route.component>
+                    ) : (
+                      <KeepAlive name={route.path} title={route.title}>
+                        <route.component route={route} {...props} />
+                      </KeepAlive>
+                    )}
                   </Suspense>
                 );
               }
