@@ -5,6 +5,8 @@ import config from './config';
 import PageLoading from '@/components/PageLoading';
 import KeepAlive from 'react-activation';
 
+const noNeedCachePath = ['/user', '/user/login'];
+
 const renderRoutes = (routes?: RoutesProps) => {
   if (!Array.isArray(routes)) {
     return null;
@@ -32,21 +34,36 @@ const renderRoutes = (routes?: RoutesProps) => {
             strict={route.strict}
             render={props => {
               const renderChildRoutes = renderRoutes(route.routes);
+              // route存在component时进循环
               if (route.component) {
-                return (
-                  <Suspense fallback={<PageLoading />}>
-                    {renderChildRoutes ? (
+                // 有子route时
+                if (renderChildRoutes) {
+                  return (
+                    <Suspense fallback={<PageLoading />}>
                       <route.component route={route} {...props}>
                         {renderChildRoutes}
                       </route.component>
-                    ) : (
-                      <KeepAlive name={route.path} title={route.title}>
-                        <route.component route={route} {...props} />
-                      </KeepAlive>
-                    )}
+                    </Suspense>
+                  );
+                }
+                if (noNeedCachePath.includes(route.path)) {
+                  // 不需要缓存路由下的内容时
+                  return (
+                    <Suspense fallback={<PageLoading />}>
+                      <route.component route={route} {...props} />
+                    </Suspense>
+                  );
+                }
+                // 输出需要缓存的路由
+                return (
+                  <Suspense fallback={<PageLoading />}>
+                    <KeepAlive name={route.path} title={route.title}>
+                      <route.component route={route} {...props} />
+                    </KeepAlive>
                   </Suspense>
                 );
               }
+              // default
               return renderChildRoutes;
             }}
           />

@@ -6,7 +6,7 @@ import SecurtiyLayout from '@/layout/SecurtiyLayout';
 import BasicLayout from '@/layout/BasicLayout';
 
 export type RouteProps = {
-  path?: string;
+  path: string;
   component?: ComponentType<any>;
   routes?: RoutesProps;
   title?: string;
