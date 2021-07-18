@@ -6,5 +6,6 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/consistent-type-imports': 0,
+    '@typescript-eslint/no-unused-vars': 0,
   },
 };
