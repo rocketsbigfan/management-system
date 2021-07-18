@@ -1,2 +1,3 @@
 # management-system
-基于react的管理系统
+
+基于 react 的管理系统

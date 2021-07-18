@@ -3,7 +3,7 @@ import path from 'path';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import vitePluginImp from 'vite-plugin-imp';
 
-function resolve (dir) {
+function resolve(dir: string) {
   return path.join(__dirname, './', dir);
 }
 
@@ -15,35 +15,37 @@ export default defineConfig({
       libList: [
         {
           libName: 'antd',
-          style: (name) => `antd/es/${name}/style`
-        }
-      ]
-    })
+          style: name => `antd/es/${name}/style`,
+        },
+      ],
+    }),
   ],
 
   resolve: {
     alias: [
       { find: /^~/, replacement: '' },
-      { find: '@', replacement: resolve('src') }
-    ]
+      { find: '@', replacement: resolve('src') },
+    ],
   },
 
   server: {
     open: true, // 是否自动打开浏览器
     proxy: {
       '/api/todos': {
-        target: 'http://localhost:3364'
+        target: 'http://localhost:3364',
         // rewrite: (path) => path.replace(API_LOCATION, '')
-      }
-
-    }
+      },
+    },
   },
-
   css: {
     preprocessorOptions: {
       less: {
-        javascriptEnabled: true
-      }
-    }
-  }
+        javascriptEnabled: true,
+      },
+    },
+  },
+  build: {
+    sourcemap: true,
+    manifest: true,
+  },
 });
