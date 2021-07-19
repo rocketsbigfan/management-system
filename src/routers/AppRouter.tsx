@@ -47,20 +47,20 @@ const renderRoutes = (routes?: RoutesProps) => {
                     </Suspense>
                   );
                 }
-                if (noNeedCachePath.includes(route.path)) {
+                if (route.keepAlive) {
                   // 不需要缓存路由下的内容时
                   return (
                     <Suspense fallback={<PageLoading />}>
-                      <route.component route={route} {...props} />
+                      <KeepAlive name={route.path} title={route.title}>
+                        <route.component route={route} {...props} />
+                      </KeepAlive>
                     </Suspense>
                   );
                 }
                 // 输出需要缓存的路由
                 return (
                   <Suspense fallback={<PageLoading />}>
-                    <KeepAlive name={route.path} title={route.title}>
-                      <route.component route={route} {...props} />
-                    </KeepAlive>
+                    <route.component route={route} {...props} />
                   </Suspense>
                 );
               }

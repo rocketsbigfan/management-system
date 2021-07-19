@@ -13,6 +13,7 @@ export type RouteProps = {
   redirect?: string;
   exact?: boolean;
   strict?: boolean;
+  keepAlive?: boolean;
 };
 
 export type RoutesProps = RouteProps[];
@@ -41,26 +42,31 @@ const config: RoutesProps = [
             path: '/first/welcome',
             title: '欢迎',
             component: lazy(() => import('@/pages/Welcome')),
+            keepAlive: true,
           },
           {
             path: '/first/table',
             title: '表格',
             component: lazy(() => import('@/pages/First/Table')),
+            keepAlive: true,
           },
           {
             path: '/first/todo',
             title: '表单',
             component: lazy(() => import('@/pages/First/TodoLists')),
+            keepAlive: true,
           },
           {
             path: '/second/com1',
             title: '测试1',
             component: lazy(() => import('@/pages/Second/Com1')),
+            keepAlive: true,
           },
           {
             path: '/second/com2',
             title: '测试2',
             component: lazy(() => import('@/pages/Second/Com2')),
+            keepAlive: true,
           },
           {
             path: '/',
