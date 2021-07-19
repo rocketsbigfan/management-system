@@ -9,7 +9,7 @@ const noNeedCachePath = ['/user', '/user/login'];
 
 const renderRoutes = (routes?: RoutesProps) => {
   if (!Array.isArray(routes)) {
-    return null;
+    return undefined;
   }
   return (
     <Switch>

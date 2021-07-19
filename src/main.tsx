@@ -5,10 +5,10 @@ import './styles/index.less';
 import AppRouter from './routers/AppRouter';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <AliveScope>
-      <AppRouter />
-    </AliveScope>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <AliveScope>
+    <AppRouter />
+  </AliveScope>,
+  // </React.StrictMode>,
   document.getElementById('root'),
 );
