@@ -6,9 +6,7 @@ import AppRouter from './routers/AppRouter';
 
 ReactDOM.render(
   // <React.StrictMode>
-  <AliveScope>
-    <AppRouter />
-  </AliveScope>,
+  <AppRouter />,
   // </React.StrictMode>,
   document.getElementById('root'),
 );

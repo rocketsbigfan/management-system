@@ -4,6 +4,7 @@ import { RoutesProps } from './config';
 import config from './config';
 import PageLoading from '@/components/PageLoading';
 import KeepAlive from 'react-activation';
+import { AliveScope } from 'react-activation';
 
 const noNeedCachePath = ['/user', '/user/login'];
 
@@ -73,5 +74,9 @@ const renderRoutes = (routes?: RoutesProps) => {
   );
 };
 
-const AppRouter = () => <Router>{renderRoutes(config)}</Router>;
+const AppRouter = () => (
+  <Router>
+    <AliveScope>{renderRoutes(config)}</AliveScope>
+  </Router>
+);
 export default AppRouter;
