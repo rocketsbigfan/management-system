@@ -10,7 +10,7 @@
 
 ## 技术栈
 
-- vite@2.0 作为构建工具
+- vite@2.0 作为前端构建工具
 - React@17.0.2，采用 hooks 来开发组件
 - React-router@5.2.0 来配置路由功能
 - 采用 Ant-Design@4.16.7 作为 UI 组件
@@ -18,6 +18,34 @@
 - 项目采用@umijs/fabric 来规范代码
 
 ## CLI 构建命令
+
+### 目录结构
+
+```text
+├── dist                    // 打包输出目录
+├── public                  // 项目公开目录
+├── src                     // src开发目录
+│   ├── assets              // 静态资源
+│   ├── components          // 公共组件
+│   ├── layout              // 页面布局组件
+│   ├── hooks               // 公共hooks
+│   ├── pages               // 具体业务页面
+│   ├── routers             // 项目路由配置
+│   ├── styles              // 存放公共样式
+│   ├── utils               // 工具库/通用函数
+│   ├── typeings.d.ts       // 声明文件
+│   └── main.ts             // 项目入口文件
+├── index.html              // 入口html页面
+├── .editorconfig           // 项目格式配置
+├── .tsconfig.json          // ts配置
+├── .eslintrc.js            // ESLint配置
+├── .prettierrc.js          // prettierrc配置
+├── .stylelintrc.js         // style配置
+├── .gitignore              // git 忽略配置
+├── package.json            // 依赖包配置
+├── vite.config.ts          // vite配置文件
+└── README.md               // 项目说明
+```
 
 ### 克隆项目
 

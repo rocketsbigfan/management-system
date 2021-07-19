@@ -33,7 +33,6 @@ export default defineConfig({
     proxy: {
       '/api/todos': {
         target: 'http://localhost:3364',
-        // rewrite: (path) => path.replace(API_LOCATION, '')
       },
     },
   },
